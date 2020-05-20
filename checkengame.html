@@ -17,53 +17,93 @@
       </span>
     </nav>
     <!-- End Of Nav -->
-<div class="container-fluid">
-
-
-    <div class="container text-center ">
-      <div class="row ">
+    <div class="container-fluid">
+      <div class="container text-center">
+        <div class="row">
           <div class="col position-relative">
-            <img id="hen1" class="position-absolute hens" src="/imgs/Happy_hen.svg " />
-            <img id="egg1" class="position-relative eggs" src="/imgs/Happy_Egg.svg "/>
+            <img
+              id="hen1"
+              class="position-absolute hens"
+              src="/imgs/Happy_hen.svg "
+            />
+            <img
+              id="egg1"
+              class="position-relative eggs"
+              data-brokenEgg="1"
+              src="/imgs/Happy_Egg.svg "
+            />
           </div>
           <div class="col position-relative">
-            <img id="hen2" class="position-absolute hens" src="/imgs/Happy_hen.svg " />
-            <img id="egg2" class="position-relative eggs" src="/imgs/Happy_Egg.svg "/>
+            <img
+              id="hen2"
+              class="position-absolute hens"
+              src="/imgs/Happy_hen.svg "
+            />
+            <img
+              id="egg2"
+              class="position-relative eggs"
+              data-brokenEgg="2"
+              src="/imgs/Happy_Egg.svg "
+            />
           </div>
           <div class="col position-relative">
-            <img id="hen3" class="position-absolute hens" src="/imgs/Happy_hen.svg " />
-            <img id="egg3" class="position-relative eggs" src="/imgs/Happy_Egg.svg "/>
+            <img
+              id="hen3"
+              class="position-absolute hens"
+              src="/imgs/Happy_hen.svg "
+            />
+            <img
+              id="egg3"
+              class="position-relative eggs"
+              data-brokenEgg="3"
+              src="/imgs/Happy_Egg.svg "
+            />
           </div>
         </div>
       </div>
 
       <div class="basket">
         <span id="score">0</span>
-      </div>     
+      </div>
     </div>
-     <!-- game start popup -->
-     <div class="start-game text-center ">
-        <h2>HAPPY EGGS</h2>
-        <button onclick="startGame();" id="play">Play</button>
+    <!-- game start popup -->
+    <div class="start-game text-center">
+      <h2>HAPPY EGGS</h2>
+      <button onclick="startEggGame();" id="play">Play</button>
     </div>
     <!-- end game start-->
     <!-- game score popup -->
     <div class="game-over text-center">
       <div class="">
         <h2>HAPPY EGGS</h2>
-        <h3  style="color: chartreuse;"></h3>
+        <h3 style="color: chartreuse;"></h3>
         <button id="playAgain" onclick="playAgain();">Play Again</button>
       </div>
     </div>
     <!-- end game score -->
-  <footer>
-    <img id="brokenegg1" class="position-absolute brokeneggs d-none " data-brokenEgg="1" src="/imgs/Broken_Egg.svg "/>
-    <img id="brokenegg2" class="position-absolute brokeneggs d-none" data-brokenEgg="2" src="/imgs/Broken_Egg.svg "/>
-    <img id="brokenegg3" class="position-absolute brokeneggs d-none" data-brokenEgg="3" src="/imgs/Broken_Egg.svg "/>
-    <div id="floor"></div>
-  </footer>
+    <footer>
+      <img
+        id="brokenegg1"
+        class="position-absolute brokeneggs d-none"
+       
+        src="/imgs/Broken_Egg.svg "
+      />
+      <img
+        id="brokenegg2"
+        class="position-absolute brokeneggs d-none"
+       
+        src="/imgs/Broken_Egg.svg "
+      />
+      <img
+        id="brokenegg3"
+        class="position-absolute brokeneggs d-none"
+        
+        src="/imgs/Broken_Egg.svg "
+      />
+      <div id="floor"></div>
+    </footer>
 
-    <script src="js/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/jquery-3.5.0.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/myjs.js"></script>

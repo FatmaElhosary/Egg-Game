@@ -17,10 +17,10 @@ let eggTop = 50;
 const brokenegg1 = document.querySelector("#brokenegg1");
 const brokenegg2 = document.querySelector("#brokenegg2");
 const brokenegg3 = document.querySelector("#brokenegg3");
-/////
+/////set brocken egg position
 brokenegg1.style.left = egg1.getBoundingClientRect().x;
 brokenegg2.style.left = egg2.getBoundingClientRect().x;
-brokenegg2.style.left = egg3.getBoundingClientRect().x;
+brokenegg3.style.left = egg3.getBoundingClientRect().x;
 //////////////////////////////////////////////////////////////
 function increaseScore() {}
 function decreseScore() {}
@@ -52,17 +52,27 @@ function chechHitPasket(egg, basket) {
     return false;
   }
 }
-var startGame;
-function startGame() {
+var startGame1, startGame1, startGame1;
+function startEggGame() {
   document.querySelector(".start-game").style.display = "none";
-  startGame = setInterval( function() { moveEggs(egg1); }, 200);
-  startGame = setInterval( function() { moveEggs(egg2); }, 200);
-  startGame = setInterval( function() { moveEggs(egg3); }, 200);
+  ///start eggs move
+  startGame1 = setInterval(function () {
+    moveEggs(egg1);
+  }, 200);
+  startGame2 = setInterval(function () {
+    moveEggs(egg2);
+  }, 200);
+  startGame3 = setInterval(function () {
+    moveEggs(egg3);
+  }, 200);
+  //intial position of eggs
+  /*  startGame = setInterval( function() { moveEggs(egg2); }, 200);
+  startGame = setInterval( function() { moveEggs(egg3); }, 200);*/
 }
 //move egss//
 
 function moveEggs(egg) {
-  eggTop += 50;
+  eggTop += 40;
   egg.style.top = eggTop;
 
   if (chechHitPasket(egg, basketImage)) {
@@ -71,27 +81,56 @@ function moveEggs(egg) {
     $("#navscore").text(score);
     eggTop = 50;
     egg.style.top = eggTop;
-  } else if (chechHitFloor(egg)) {
+  }
+    else if (chechHitFloor(egg)) {
+    eggTop = 50;
+    egg.style.top = eggTop;
     navLife--;
     if (navLife < 1) {
       gameOver();
     } else {
       document.getElementById("navlife").innerHTML = navLife;
     }
-
-    eggTop = 50;
-    egg.style.top = eggTop;
-    brokenegg1.classList.add("d-block");
-    setTimeout(function () {
-      brokenegg1.classList.remove("d-block");
-    }, 500);
+   
   }
 }
 
+
+//// show & hide broken egg function
+function showBrockenEgg(egg) {
+  let brockenEggNum = $(egg).attr("data-brokenEgg");
+  console.log(brockenEggNum);
+  $("#brokenegg" + brockenEggNum).show(1, function () {
+    setTimeout(function () {
+      $("#brokenegg" + brockenEggNum).hide(); // hide broken egg after 600 ms
+    }, 600);
+  });
+}
 function chechHitFloor(egg) {
+  //console.log(egg);
   let floorTop = Math.round(floor.getBoundingClientRect().top);
   let eggTop = Math.round(egg.getBoundingClientRect().top);
   if (eggTop >= floorTop) {
+    switch (egg) {
+      case egg1:
+        brokenegg1.classList.add("d-block");
+        setTimeout(function () {
+          brokenegg1.classList.remove("d-block");
+        }, 600);
+        break;
+      case egg2:
+        brokenegg2.classList.add("d-block");
+        setTimeout(function () {
+          brokenegg2.classList.remove("d-block");
+        }, 600);
+        break;
+      case egg3:
+        brokenegg3.classList.add("d-block");
+        setTimeout(function () {
+          brokenegg3.classList.remove("d-block");
+        }, 600);
+        break;
+    }
     return true;
   } else {
     return false;
@@ -102,18 +141,29 @@ function playAgain() {
   ///
   document.querySelector(".game-over").style.display = "none";
   document.querySelector(".start-game").style.display = "block";
-    //set initial values
+  //set initial values
   score = 0;
   document.getElementById("score").innerHTML = score;
   $("#navscore").text(score);
   navLife = 10;
   document.getElementById("navlife").innerHTML = navLife;
-  $('.container ,nav').show();
+  $(".container ,nav").show();
+  clearInterval(startGame1);
+  clearInterval(startGame2);
+  clearInterval(startGame3);
+  $(".brokeneggs").hide();
 }
 function gameOver() {
-  $('.game-over h3').text(score);
+  $(".game-over h3").text(score);
   document.querySelector(".game-over").style.display = "block";
-  clearInterval(startGame);
-  $('.container ,nav').css("display","none");
-
+  //set inital position of eggs
+  eggTop = 50;
+  egg1.style.top = eggTop;
+  egg2.style.top = eggTop;
+  egg3.style.top = eggTop;
+  clearInterval(startGame1);
+  clearInterval(startGame2);
+  clearInterval(startGame3);
+  $(".container ,nav").css("display", "none");
+  $(".brokeneggs").hide();
 }
