@@ -1,0 +1,71 @@
+<!-- <!DOCTYPE html> -->
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Egg</title>
+  </head>
+  <body>
+    <!-- As a heading -->
+    <nav class="navbar navbar-dark bg-tranparent">
+      <span class="navbar-brand mb-0 h1 pl-3"
+        >score <span id="navscore"> 0</span>
+      </span>
+      <span class="mr-sm-2 navbar-brand mb-0 h1 pr-3"
+        >Life <span id="navlife"> 10</span>
+      </span>
+    </nav>
+    <!-- End Of Nav -->
+<div class="container-fluid">
+
+
+    <div class="container text-center ">
+      <div class="row ">
+          <div class="col position-relative">
+            <img id="hen1" class="position-absolute hens" src="/imgs/Happy_hen.svg " />
+            <img id="egg1" class="position-relative eggs" src="/imgs/Happy_Egg.svg "/>
+          </div>
+          <div class="col position-relative">
+            <img id="hen2" class="position-absolute hens" src="/imgs/Happy_hen.svg " />
+            <img id="egg2" class="position-relative eggs" src="/imgs/Happy_Egg.svg "/>
+          </div>
+          <div class="col position-relative">
+            <img id="hen3" class="position-absolute hens" src="/imgs/Happy_hen.svg " />
+            <img id="egg3" class="position-relative eggs" src="/imgs/Happy_Egg.svg "/>
+          </div>
+        </div>
+      </div>
+
+      <div class="basket">
+        <span id="score">0</span>
+      </div>     
+    </div>
+     <!-- game start popup -->
+     <div class="start-game text-center ">
+        <h2>HAPPY EGGS</h2>
+        <button onclick="startGame();" id="play">Play</button>
+    </div>
+    <!-- end game start-->
+    <!-- game score popup -->
+    <div class="game-over text-center">
+      <div class="">
+        <h2>HAPPY EGGS</h2>
+        <h3  style="color: chartreuse;"></h3>
+        <button id="playAgain" onclick="playAgain();">Play Again</button>
+      </div>
+    </div>
+    <!-- end game score -->
+  <footer>
+    <img id="brokenegg1" class="position-absolute brokeneggs d-none " data-brokenEgg="1" src="/imgs/Broken_Egg.svg "/>
+    <img id="brokenegg2" class="position-absolute brokeneggs d-none" data-brokenEgg="2" src="/imgs/Broken_Egg.svg "/>
+    <img id="brokenegg3" class="position-absolute brokeneggs d-none" data-brokenEgg="3" src="/imgs/Broken_Egg.svg "/>
+    <div id="floor"></div>
+  </footer>
+
+    <script src="js/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/myjs.js"></script>
+  </body>
+</html>
