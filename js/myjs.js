@@ -90,8 +90,7 @@ function moveEggs(egg) {
       gameOver();
     } else {
       document.getElementById("navlife").innerHTML = navLife;
-    }
-   
+    } 
   }
 }
 
